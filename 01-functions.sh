@@ -9,7 +9,7 @@ VALIDATE(){
         echo "$2.... Failed"
     else
         echo "$2.... Success"
-fi 
+    fi 
     
 }
 
