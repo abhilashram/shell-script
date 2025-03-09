@@ -1,15 +1,30 @@
 #!/bin/bash
 
-USERID=$(id -u)
+USERID=$( id -u)
+
 if [ $USERID -ne 0 ]
-then 
-    echo "Please run this script with room access "
+then
+    echo "You are root user"
     exit 1 
-else 
-    echo "You are a Super User"
+else
+    echo "You are Super user"
 fi 
 
-for i in $@
-do 
-    echo "Your packages: $i"
-done 
+dnf install mysql -y 
+
+if [ $? -ne 0 ]
+then 
+    echo "Installing MYSQL.... Failed"
+else
+    echo "Installing MYSQL.... Success"
+fi 
+
+dnf install git -y 
+
+if [ $? -ne 0 ]
+then 
+    echo "Installing Git ....Failed"
+else
+    echo "Installing Git ....Success"
+fi 
+
